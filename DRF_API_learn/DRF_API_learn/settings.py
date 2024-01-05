@@ -14,7 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+TEMPlATES_DIR=Path.joinpath(BASE_DIR,'templates')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'basic_api',
     'rest_framework',
+    'User_app',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'DRF_API_learn.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPlATES_DIR,],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -94,8 +95,6 @@ DATABASES = {
         'PORT': '3306',        # Set to your MySQL server's port
     }
 }
-
-
 
 
 

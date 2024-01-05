@@ -1,0 +1,22 @@
+{% extends 'User_app/base.html' %}
+
+{% block body %}
+<div class="container">
+    <div class="jumbroton">
+        <h1>Create User</h1>
+        <div>
+            <form action="{% url 'User_app:createuser' %}" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input class="btn btn-primary" type="submit",name=CREATE>
+            </form>
+
+
+            <div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
