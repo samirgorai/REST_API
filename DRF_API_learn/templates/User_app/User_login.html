@@ -4,6 +4,11 @@
 <div class="container">
     <div class="jumbroton">
         <h1>Login</h1>
+        <form action="{% url 'User_app:user_login' %}" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="btn btn-primary" type="submit" name="LOGIN">
+        </form>
     </div>
 </div>
 {% endblock %}
