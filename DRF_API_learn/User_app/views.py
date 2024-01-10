@@ -4,6 +4,9 @@ from User_app.forms import Create_user_form,Login_form
 from django.contrib.auth import authenticate,login
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
+from django.shortcuts import redirect
+
 # Create your views here.
 
 #home 
@@ -48,7 +51,7 @@ def create_user(request):
 
     
 def user_login(request):
-    
+    authenticated=False
     if(request.method=="POST"):
         print('----------userlogin1-------')
         login_form=Login_form(request.POST)
@@ -67,6 +70,7 @@ def user_login(request):
                 login(request, user)
                 return render(request, 'User_app/api_token_page.html', {'username': request.POST.get('username')})
                 print('------ login success ---------')
+                authenticated=True
             else:
                 # Authentication failed
                 return render(request, 'User_app/User_login.html', {'form': login_form})
@@ -75,10 +79,15 @@ def user_login(request):
     else:
         login_form=Login_form()                
 
-    return render(request,'User_app/User_login.html',{"form":login_form})
+    return render(request,'User_app/User_login.html',{"form":login_form,})
 
 @login_required
 def token_view(request):
     username=request.user
     token=''
     return(render(request,'User_app/api_token_page.html',{'username':username,'token':token}))
+
+@login_required
+def logout_user(request):
+    logout(request)
+    return render(request,'User_app/index.html')
