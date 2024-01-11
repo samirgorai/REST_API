@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate,login
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from rest_framework.authtoken.models import Token
 #from django.shortcuts import redirect
 
 # Create your views here.
@@ -67,8 +68,13 @@ def user_login(request):
             print("----user-------",user,"-------------")
             if user is not None:
                 
+        
+                username = login_form.cleaned_data['username']
+                user_instance=User.objects.get(username=username)
+                token=Token.objects.get(user=user_instance)
+                
                 login(request, user)
-                return render(request, 'User_app/api_token_page.html', {'username': request.POST.get('username')})
+                return render(request, 'User_app/api_token_page.html', {'username': request.POST.get('username'),'token':token})
                 print('------ login success ---------')
                 authenticated=True
             else:
@@ -84,7 +90,13 @@ def user_login(request):
 @login_required
 def token_view(request):
     username=request.user
-    token=''
+    user_instance=User.objects.get(username=username)
+    try:
+        token=Token.objects.get(user=user_instance)
+        print("-----token:---------",token)
+    except:
+        token='NONE'
+
     return(render(request,'User_app/api_token_page.html',{'username':username,'token':token}))
 
 @login_required
