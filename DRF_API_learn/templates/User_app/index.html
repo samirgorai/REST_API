@@ -4,6 +4,32 @@
 <div class="container">
     <div class="jumbroton">
         <h1>Welcome</h1>
+        <ul>
+            <li>A small project on Django Rest Framework</li>
+            <li>A new user can Register/Signup using CREATE USER</li>
+            <li>A user can log in using the password and username</li>
+            <li>upon logging in page will be redirected to TOKEN page where user will recieve a token ID</li>
+            <li>Using the token user can use the API end point "https://samirgorai2.pythonanywhere.com/employeeapi/ "</li>
+            <li>User can make a GET/POST request from postman or curl</li>    
+        </ul>
+        <div>
+            <div>
+                <h3>Using curl from command line interpreter:</h3>
+                <h4>Example GET request:</h4>
+                <ul>
+                    <li>curl -X GET http://samirgorai2.pythonanywhere.com/employeeapi/ -H "Authorization: Token 2c51383716eaae5c2f796bd35f3f79ac8897fcc1"</li>
+                    <li>replace token with your token</li>
+                </ul>
+                <h4>Example POST request:</h4>
+                <ul>
+                    <li>curl -X POST http://samirgorai2.pythonanywhere.com/employeeapi/ -H "Authorization: Token 2c51383716eaae5c2f796bd35f3f79ac8897fcc1" -d "name=John&age=30&emp_id=2&sex=Male"</li>
+                    <li>replace token with your token</li>
+                    <li>set name=____ age=___ sex=_____ emp_id=_____</li>
+                </ul>
+
+
+        </div>
+
     </div>
 </div>
 {% endblock %}
