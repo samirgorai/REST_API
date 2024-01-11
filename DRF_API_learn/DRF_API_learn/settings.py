@@ -23,12 +23,20 @@ TEMPlATES_DIR=Path.joinpath(BASE_DIR,'templates')
 SECRET_KEY = 'django-insecure-nghongkqkg--oe8^_5s431d_+65nkhhzs(sl^c_(=*6az8=ei4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True #when hosting this part needs to be changed
+DEBUG = False #when hosting this part needs to be changed
 
-ALLOWED_HOSTS = [] #when hosting this part needs to be changed
+ALLOWED_HOSTS = ["http://127.0.0.1:8000/","http://samirgorai2.pythonanywhere.com/"] #when hosting this part needs to be changed
 
-BASE_URL="http://127.0.0.1:8000/" #when hosting this part needs to be changed
+#BASE_URL="http://127.0.0.1:8000/" #when hosting this part needs to be changed
+BASE_URL=http://samirgorai2.pythonanywhere.com/
 LOGIN_URL = BASE_URL+ "User_app/userlogin/" #when hosting this part needs to be changed
+
+"""REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}"""
 
 # Application definition
 

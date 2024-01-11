@@ -20,12 +20,12 @@ def create_user(request):
     Flag=False
     message=''
     user_form=Create_user_form()
-    #print('---------inside create_user----------')
+    
     if(request.method=="POST"):
-        #print('---------inside create_user2----------')
+        
         user_form=Create_user_form(data=request.POST)
         if(user_form.is_valid()):
-            #print('---------inside create_user3----------')
+            
             #save user credentials           
             
             """first_name=request.POST.get('first_name')
@@ -33,15 +33,14 @@ def create_user(request):
             email=request.POST.get('email')
             username=request.POST.get('username')
             password=request.POST.get('password')"""
-            #print('----------')
-            #print('first_name',first_name,"password:",password)
-            #User.objects.create_user(first_name=first_name,last_name=last_name,email=email,username=username,password=password)
+            
+            
+            
             user=user_form.save()
             user.set_password(user.password)
             user.save()
             Flag=True
-            #print('---------inside create_user4----------')
-            #User.first_name,User.last_name,User.username,User.email,User.password]
+
             message="Succcesfully Created User profile"         
             return render(request,'User_app/createusersuccess.html',{'username':request.POST['username']})     
         else:
@@ -54,18 +53,17 @@ def create_user(request):
 def user_login(request):
     authenticated=False
     if(request.method=="POST"):
-        print('----------userlogin1-------')
+
         login_form=Login_form(request.POST)
-        print("------login_form.is_valid()--------",login_form.is_valid(),"------------------")
+
         if(login_form.is_valid()):
-            #username = request.POST['username']
-            #password = request.POST['password']
+
             username = login_form.cleaned_data['username']
             password = login_form.cleaned_data['password']
-            print("--------username:",username,"-----password-----",password)
+
             #user=authenticate(username=request.POST.get('username'),password=request.POST.get('password'))
             user=authenticate(request,username=username,password=password)
-            print("----user-------",user,"-------------")
+
             if user is not None:
                 
         
@@ -75,12 +73,12 @@ def user_login(request):
                 
                 login(request, user)
                 return render(request, 'User_app/api_token_page.html', {'username': request.POST.get('username'),'token':token})
-                print('------ login success ---------')
+
                 authenticated=True
             else:
                 # Authentication failed
                 return render(request, 'User_app/User_login.html', {'form': login_form})
-                print('----------userlogin3-------')
+
         login_form=Login_form()
     else:
         login_form=Login_form()                
@@ -93,7 +91,7 @@ def token_view(request):
     user_instance=User.objects.get(username=username)
     try:
         token=Token.objects.get(user=user_instance)
-        print("-----token:---------",token)
+
     except:
         token='NONE'
 
