@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate,login
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
-from django.shortcuts import redirect
+#from django.shortcuts import redirect
 
 # Create your views here.
 

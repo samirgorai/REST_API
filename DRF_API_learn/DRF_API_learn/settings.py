@@ -23,12 +23,12 @@ TEMPlATES_DIR=Path.joinpath(BASE_DIR,'templates')
 SECRET_KEY = 'django-insecure-nghongkqkg--oe8^_5s431d_+65nkhhzs(sl^c_(=*6az8=ei4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True #when hosting this part needs to be changed
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [] #when hosting this part needs to be changed
 
-BASE_URL="http://127.0.0.1:8000/"
-LOGIN_URL = BASE_URL+ "User_app/userlogin/"
+BASE_URL="http://127.0.0.1:8000/" #when hosting this part needs to be changed
+LOGIN_URL = BASE_URL+ "User_app/userlogin/" #when hosting this part needs to be changed
 
 # Application definition
 
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'basic_api',
     'rest_framework',
+    'rest_framework.authtoken',
     'User_app',
 ]
 
@@ -97,7 +98,6 @@ DATABASES = {
         'PORT': '3306',        # Set to your MySQL server's port
     }
 }
-
 
 
 
