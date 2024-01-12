@@ -1,0 +1,22 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.background-image {
+    /* Set the background image */
+    background-image: url('your-image.jpg'); /* Replace 'your-image.jpg' with the actual path to your image */
+
+    /* Fullscreen background */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Center your content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Adjust text color for readability (optional) */
+    color: #ef0707; /* Set text color to white or another suitable color */
+}

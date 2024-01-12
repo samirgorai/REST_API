@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPlATES_DIR=Path.joinpath(BASE_DIR,'templates')
@@ -23,12 +23,15 @@ STATIC_DIR=Path.joinpath(BASE_DIR,'static')
 SECRET_KEY = 'django-insecure-nghongkqkg--oe8^_5s431d_+65nkhhzs(sl^c_(=*6az8=ei4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False #when hosting this part needs to be changed
+#DEBUG = False #when hosting this part needs to be changed
+DEBUG = True
 
-ALLOWED_HOSTS = ["http://127.0.0.1:8000/","http://samirgorai2.pythonanywhere.com/"] #when hosting this part needs to be changed
+#ALLOWED_HOSTS = ["http://127.0.0.1:8000/","samirgorai2.pythonanywhere.com"] #when hosting this part needs to be changed
+ALLOWED_HOSTS = []
 
-#BASE_URL="http://127.0.0.1:8000/" #when hosting this part needs to be changed
-BASE_URL="http://samirgorai2.pythonanywhere.com/"
+
+BASE_URL="http://127.0.0.1:8000/" #when hosting this part needs to be changed
+#BASE_URL="http://samirgorai2.pythonanywhere.com/"
 LOGIN_URL = BASE_URL+ "User_app/userlogin/" #when hosting this part needs to be changed
 
 """REST_FRAMEWORK = {
@@ -154,3 +157,8 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Specify the directory to store collected static files

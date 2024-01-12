@@ -1,5 +1,5 @@
 {% extends 'User_app/base.html' %}
-
+{% load static %}
 {% block body %}
 <div class="container">
     <div class="jumbroton">
@@ -13,7 +13,7 @@
             <li>User can make a GET/POST request from postman or curl</li>    
         </ul>
         <div>
-            <div>
+            <div class="jumbroton">
                 <h3>Using curl from command line interpreter:</h3>
                 <h4>Example GET request:</h4>
                 <ul>
@@ -28,10 +28,10 @@
                 </ul>
 
             </div>
-            <div>
+            <div class="jumbroton">
                 <h3>To make a GET request via postman (web.postman.co):</h3>
                 <h4>Example GET request:</h4>
-                <img src="{% static 'Postman_get_request.png' %}" alt="postman GET">
+                <img class="img-responsive" class="img-fluid" src="{% static 'Postman_get_request.png' %}" alt="postman GET">
                 <ul>
                     <li>set to GET</li>
                     <li>set the URL to http://samirgorai2.pythonanywhere.com/employeeapi/ </li>
@@ -42,11 +42,11 @@
                 </ul>
 
             </div>
-            <div>
+            <div class="jumbroton">
                 <h3>To make a POST request via postman (web.postman.co):</h3>
                 <h4>Example POST request:</h4>
-                <img src="{% static 'Postman_POST_request1.png' %}" alt="postman POST">
-                <img src="{% static 'Postman_POST_request2.png' %}" alt="postman POST">
+                <img class="img-responsive" src="{% static 'Postman_POST_request1.png' %}" alt="postman POST">
+                <img  class="img-responsive" src="{% static 'Postman_POST_request2.png' %}" alt="postman POST">
                 <ul>
                     <li>set to POST</li>
                     <li>set the URL to http://samirgorai2.pythonanywhere.com/employeeapi/ </li>
