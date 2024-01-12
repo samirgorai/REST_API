@@ -27,9 +27,39 @@
                     <li>set name=____ age=___ sex=_____ emp_id=_____</li>
                 </ul>
 
+            </div>
+            <div>
+                <h3>To make a GET request via postman (web.postman.co):</h3>
+                <h4>Example GET request:</h4>
+                <img src="{% static 'Postman_get_request.png' %}" alt="postman GET">
+                <ul>
+                    <li>set to GET</li>
+                    <li>set the URL to http://samirgorai2.pythonanywhere.com/employeeapi/ </li>
+                    <li>go to Authorization tab</li>
+                    <li>set type to API key</li>
+                    <li>set key to Authorization in value set it to Token<space>Token no Add to change it to header click on send.</li>
+                    <li>result will be shown in 6</li>
+                </ul>
+
+            </div>
+            <div>
+                <h3>To make a POST request via postman (web.postman.co):</h3>
+                <h4>Example POST request:</h4>
+                <img src="{% static 'Postman_POST_request1.png' %}" alt="postman POST">
+                <img src="{% static 'Postman_POST_request2.png' %}" alt="postman POST">
+                <ul>
+                    <li>set to POST</li>
+                    <li>set the URL to http://samirgorai2.pythonanywhere.com/employeeapi/ </li>
+                    <li>go to Authorization tab</li>
+                    <li>set type to API key</li>
+                    <li>set key to Authorization in value set it to Token<space>Token no Add to change it to header </li>
+                    <li>go to body TAB</li>
+                    <li>set it to raw</li>
+                    <li>set the value to in JSON format as shown in 8</li>
+                    <li>click on send</li>
+                </ul>
+            </div>
 
         </div>
-
-    </div>
 </div>
 {% endblock %}
